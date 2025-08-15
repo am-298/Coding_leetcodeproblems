@@ -1,0 +1,32 @@
+
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+                       { 
+                        using ll= long long;
+
+    if (dividend == INT_MIN && divisor == -1) return INT_MAX; 
+    ll a = abs((ll)dividend);
+    ll b = abs((ll)divisor);
+    ll res = 0;
+    
+    while (a >= b) {
+        ll temp = b, multiple = 1;
+        while (a >= (temp<<1))
+         { 
+            temp <<= 1;
+            multiple <<= 1;
+        }
+      
+        a -= temp;
+        res += multiple;
+    }
+    
+    if ((dividend < 0) ^ (divisor < 0)) res = -res; 
+    return res;
+}
+
+               
+           
+    }
+};
