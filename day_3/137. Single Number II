@@ -13,3 +13,19 @@ public:
             return res;
     }
 };
+
+bit manipulation method :--
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ones =0; 
+        int twos=0;
+
+        for (int c : nums){
+            ones= (ones ^c )& ~(twos);
+            twos= (twos ^c) & ~(ones);
+        }
+        return ones;
+    }
+};
